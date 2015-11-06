@@ -55,3 +55,8 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Project-specific
+db.sqlite3
+.DS_Store
+.*.sw?
