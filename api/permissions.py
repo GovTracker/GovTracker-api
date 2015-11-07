@@ -19,7 +19,10 @@ class IsAdminOrSelfOrAnon(IsAdminUser):
 
     def has_permission(self, request, view):
         pk = view.kwargs.get('pk')
-        pk = int(pk) if pk else pk
+        try:
+            pk = int(pk)
+        except Exception:
+            pk = None
         if request.method == 'POST' and 'POST' in view.allowed_methods and pk is None:
             # Likely a POST against the list view, we will allow for user creation
             return True

@@ -30,7 +30,10 @@ class UserViewSet(viewsets.ModelViewSet):
             % self.__class__.__name__
         )
         pk = self.kwargs.get('pk')
-        pk = int(pk) if pk else pk
+        try:
+            pk = int(pk)
+        except Exception:
+            pk = None
         if self.request.method == 'POST' and 'POST' in self.allowed_methods and pk is None:
             # Likely a POST against the list view, we will allow for user creation
             return self.serializer_create_class
