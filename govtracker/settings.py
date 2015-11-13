@@ -128,7 +128,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/api/static/'
+STATIC_URL = '/static/backend/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static');
 
 # Django REST Framework options
 if GOVTRACKER_PROD:
